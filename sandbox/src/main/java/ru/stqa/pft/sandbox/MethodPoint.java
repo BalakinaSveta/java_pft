@@ -2,26 +2,23 @@ package ru.stqa.pft.sandbox;
 
 public class MethodPoint {
 
-    public double x1;
-    public double x2;
-    public double y1;
-    public double y2;
+    public double x;
+    public double y;
 
-  public MethodPoint (double x1, double x2, double y1, double y2) {
-    this.x1 = x1;
-    this.y1 = y1;
-    this.x2 = x2;
-    this.y2 = y2;
+  public MethodPoint (double x, double y) {
+    this.x = x;
+    this.y = y;
   }
     public static void main(String[] args) {
 
-      MethodPoint dis = new MethodPoint(2, 6, 4, 10);
+      MethodPoint p1 = new MethodPoint(2, 4);
+      MethodPoint p2 = new MethodPoint(6, 10);
 
-      System.out.println("Расстояние между двумя точками = " + dis.distance());
+      System.out.println("Расстояние между двумя точками = " + p1.distance(p2));
     }
 
-    public double distance() {
-     return Math.sqrt((this.x2-this.x1)*(this.x2-this.x1)+(this.y2-this.y1)*(this.y2-this.y1));
+  public double distance(MethodPoint p2) {
+     return Math.sqrt((this.x-p2.x)*(this.x-p2.x)+(this.y-p2.y)*(this.y-p2.y));
     }
 
 }
