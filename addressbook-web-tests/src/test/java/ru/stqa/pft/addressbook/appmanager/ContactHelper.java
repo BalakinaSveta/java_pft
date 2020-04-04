@@ -2,52 +2,34 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.Select;
 import ru.stqa.pft.addressbook.model.ContactData;
 
-public class ContactHelper {
-  private WebDriver wd;
+public class ContactHelper extends HelperBase{
 
   public ContactHelper (WebDriver wd){
-    this.wd = wd;
+    super(wd);
   }
 
   public void initContactCreation() {
-    wd.findElement(By.linkText("add new")).click();
+    click(By.linkText("add new"));
   }
 
   public void fillContactForm(ContactData contactData) {
-    wd.findElement(By.name("firstname")).click();
-    wd.findElement(By.name("firstname")).clear();
-    wd.findElement(By.name("firstname")).sendKeys(contactData.getFirstname());
-    wd.findElement(By.name("middlename")).click();
-    wd.findElement(By.name("middlename")).clear();
-    wd.findElement(By.name("middlename")).sendKeys(contactData.getMiddlename());
-    wd.findElement(By.name("lastname")).click();
-    wd.findElement(By.name("lastname")).clear();
-    wd.findElement(By.name("lastname")).sendKeys(contactData.getLastname());
-    wd.findElement(By.name("mobile")).click();
-    wd.findElement(By.name("mobile")).clear();
-    wd.findElement(By.name("mobile")).sendKeys(contactData.getMobile());
-    wd.findElement(By.name("email")).click();
-    wd.findElement(By.name("email")).clear();
-    wd.findElement(By.name("email")).sendKeys(contactData.getEmail());
-    wd.findElement(By.name("bday")).click();
-    new Select(wd.findElement(By.name("bday"))).selectByVisibleText(contactData.getBirthday());
-    wd.findElement(By.xpath("//div[@id='content']/form/select/option[7]")).click();
-    wd.findElement(By.name("bmonth")).click();
-    new Select(wd.findElement(By.name("bmonth"))).selectByVisibleText(contactData.getBirthmonth());
-    wd.findElement(By.xpath("//div[@id='content']/form/select[2]/option[6]")).click();
-    wd.findElement(By.name("byear")).click();
-    wd.findElement(By.name("byear")).clear();
-    wd.findElement(By.name("byear")).sendKeys(contactData.getBirthyear());
+    type(By.name("firstname"),(contactData.getFirstname()));
+    type(By.name("middlename"),(contactData.getMiddlename()));
+    type(By.name("lastname"),(contactData.getLastname()));
+    type(By.name("mobile"),(contactData.getMobile()));
+    type(By.name("email"),(contactData.getEmail()));
+    select(By.name("bday"), contactData.getBirthday(), By.xpath("//div[@id='content']/form/select/option[7]"));
+    select(By.name("bmonth"), contactData.getBirthmonth(), By.xpath("//div[@id='content']/form/select[2]/option[6]"));
+    type(By.name("byear"),(contactData.getBirthyear()));
   }
 
   public void submitContactCreation() {
-    wd.findElement(By.xpath("(//input[@name='submit'])[2]")).click();
+    click(By.xpath("(//input[@name='submit'])[2]"));
   }
 
   public void returnToHomePage() {
-    wd.findElement(By.linkText("home page")).click();
+    click(By.linkText("home page"));
   }
 }
