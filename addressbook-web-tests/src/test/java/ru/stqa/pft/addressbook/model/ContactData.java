@@ -4,21 +4,9 @@ import java.util.Objects;
 
 public class ContactData {
 
-  private int id;
-  private final String firstname;
-  private final String lastname;
-
-  public ContactData(int id, String firstname, String lastname) {
-    this.id = id;
-    this.firstname = firstname;
-    this.lastname = lastname;
-  }
-
-  public ContactData(String firstname, String lastname) {
-    this.id = Integer.MAX_VALUE;
-    this.firstname = firstname;
-    this.lastname = lastname;
-  }
+  private int id = Integer.MAX_VALUE;
+  private String firstname;
+  private String lastname;
 
   @Override
   public String toString() {
@@ -33,10 +21,6 @@ public class ContactData {
     return id;
   }
 
-  public void setId(int id) {
-    this.id = id;
-  }
-
   public String getFirstname() {
     return firstname;
   }
@@ -45,18 +29,32 @@ public class ContactData {
     return lastname;
   }
 
+  public ContactData withId(int id) {
+    this.id = id;
+    return this;
+  }
+
+  public ContactData withFirstname(String firstname) {
+    this.firstname = firstname;
+    return this;
+  }
+
+  public ContactData withLastname(String lastname) {
+    this.lastname = lastname;
+    return this;
+  }
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     ContactData that = (ContactData) o;
-    return Objects.equals(firstname, that.firstname) &&
+    return id == that.id &&
+            Objects.equals(firstname, that.firstname) &&
             Objects.equals(lastname, that.lastname);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstname, lastname);
+    return Objects.hash(id, firstname, lastname);
   }
-
 }
