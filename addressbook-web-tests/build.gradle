@@ -8,6 +8,8 @@ dependencies {
     compile 'org.testng:testng:7.1.0'
     compile 'org.seleniumhq.selenium:selenium-java:4.0.0-alpha-5'
     implementation 'org.hamcrest:java-hamcrest:2.0.0.0'
+    implementation 'com.beust:jcommander:1.78'
+    implementation 'com.thoughtworks.xstream:xstream:1.4.8'
 }
 
 test {
