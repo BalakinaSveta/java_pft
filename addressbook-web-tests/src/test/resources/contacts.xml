@@ -1,0 +1,34 @@
+<list>
+  <contact>
+    <firstname>Ivan 1</firstname>
+    <lastname>Ivanov
+1</lastname>
+    <address>Moscow
+1</address>
+    <photo>src\test\resources\stru.png</photo>
+  </contact>
+  <contact>
+    <firstname>Ivan 2</firstname>
+    <lastname>Ivanov
+2</lastname>
+    <address>Moscow
+2</address>
+    <photo>src\test\resources\stru.png</photo>
+  </contact>
+  <contact>
+    <firstname>Ivan 3</firstname>
+    <lastname>Ivanov
+3</lastname>
+    <address>Moscow
+3</address>
+    <photo>src\test\resources\stru.png</photo>
+  </contact>
+  <contact>
+    <firstname>Ivan 4</firstname>
+    <lastname>Ivanov
+4</lastname>
+    <address>Moscow
+4</address>
+    <photo>src\test\resources\stru.png</photo>
+  </contact>
+</list>
