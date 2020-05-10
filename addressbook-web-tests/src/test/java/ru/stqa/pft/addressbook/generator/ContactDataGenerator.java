@@ -80,7 +80,9 @@ public class ContactDataGenerator {
     List<ContactData> contacts = new ArrayList<ContactData>();
     for (int i = 0; i < count; i++) {
       contacts.add(new ContactData().withFirstname(String.format("Ivan %s", i))
-              .withLastname(String.format("Ivanov\n%s", i)).withAddress(String.format("Moscow\n%s", i)).withPhoto(new File ("src/test/resources/stru.png")));
+              .withLastname(String.format("Ivanov\n%s", i)).withAddress(String.format("Moscow\n%s", i))
+              .withEmail1(String.format("test@mail.ru\n%s", i)).withEmail2(String.format("test@gmail.com\n%s", i)).withEmail3(String.format("test@yandex.ru\n%s",i))
+              .withHomePhone(String.format("21\n%s", i)).withMobilePhone(String.format("906\n%s", i)).withWorkPhone(String.format("495\n%s", i)));
     }
     return contacts;
   }

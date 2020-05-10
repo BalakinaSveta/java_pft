@@ -1,34 +1,40 @@
 <list>
   <contact>
+    <firstname>Ivan 0</firstname>
+    <lastname>Ivanov
+0</lastname>
+    <address>Moscow
+0</address>
+    <email1>test@mail.ru
+0</email1>
+    <email2>test@gmail.com
+0</email2>
+    <email3>test@yandex.ru
+0</email3>
+    <homePhone>21
+0</homePhone>
+    <mobilePhone>906
+0</mobilePhone>
+    <workPhone>495
+0</workPhone>
+  </contact>
+  <contact>
     <firstname>Ivan 1</firstname>
     <lastname>Ivanov
 1</lastname>
     <address>Moscow
 1</address>
-    <photo>src\test\resources\stru.png</photo>
-  </contact>
-  <contact>
-    <firstname>Ivan 2</firstname>
-    <lastname>Ivanov
-2</lastname>
-    <address>Moscow
-2</address>
-    <photo>src\test\resources\stru.png</photo>
-  </contact>
-  <contact>
-    <firstname>Ivan 3</firstname>
-    <lastname>Ivanov
-3</lastname>
-    <address>Moscow
-3</address>
-    <photo>src\test\resources\stru.png</photo>
-  </contact>
-  <contact>
-    <firstname>Ivan 4</firstname>
-    <lastname>Ivanov
-4</lastname>
-    <address>Moscow
-4</address>
-    <photo>src\test\resources\stru.png</photo>
+    <email1>test@mail.ru
+1</email1>
+    <email2>test@gmail.com
+1</email2>
+    <email3>test@yandex.ru
+1</email3>
+    <homePhone>21
+1</homePhone>
+    <mobilePhone>906
+1</mobilePhone>
+    <workPhone>495
+1</workPhone>
   </contact>
 </list>
