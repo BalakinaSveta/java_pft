@@ -139,10 +139,7 @@ public class ContactHelper extends HelperBase {
       String firstname = cells.get(2).getText();
       String lastname = cells.get(1).getText();
       String address = cells.get(3).getText();
-      String allEmails = cells.get(4).getText();
-      String allPhones = cells.get(5).getText();
-      contactCache.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname).withAddress(address)
-              .withAllEmails(allEmails).withAllPhones(allPhones));
+      contactCache.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname).withAddress(address));
     }
     return new Contacts(contactCache);
   }
