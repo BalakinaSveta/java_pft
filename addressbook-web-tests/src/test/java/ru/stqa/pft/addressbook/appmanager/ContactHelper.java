@@ -26,6 +26,7 @@ public class ContactHelper extends HelperBase {
 
   public void fillContactForm(ContactData contactData, boolean creation) {
     type(By.name("firstname"), (contactData.getFirstname()));
+    type(By.name("middlename"), (contactData.getMiddlename()));
     type(By.name("lastname"), (contactData.getLastname()));
     type(By.name("address"), (contactData.getAddress()));
     type(By.name("email"), (contactData.getEmail1()));
@@ -34,16 +35,16 @@ public class ContactHelper extends HelperBase {
     type(By.name("home"), (contactData.getHomePhone()));
     type(By.name("mobile"), (contactData.getMobilePhone()));
     type(By.name("work"), (contactData.getWorkPhone()));
+    type(By.name("company"), (contactData.getCompany()));
     //attach(By.name("photo"), (contactData.getPhoto()));
 
     if (creation) {
-     if (contactData.getGroups().size() > 0) {
-       Assert.assertTrue(contactData.getGroups().size() == 1);
-       new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroups().iterator().next().getName());
-     }
-     else {
-       Assert.assertFalse(isElementPresent(By.name("new_group")));
-     }
+      if (contactData.getGroups().size() > 0) {
+        Assert.assertTrue(contactData.getGroups().size() == 1);
+        new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroups().iterator().next().getName());
+      } else {
+        Assert.assertFalse(isElementPresent(By.name("new_group")));
+      }
     }
   }
 
