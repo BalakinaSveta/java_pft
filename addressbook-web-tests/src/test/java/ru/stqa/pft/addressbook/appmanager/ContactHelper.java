@@ -9,7 +9,6 @@ import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.GroupData;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -176,13 +175,24 @@ public class ContactHelper extends HelperBase {
 
   public void addToGroup(ContactData contact, GroupData group) {
     selectContactById(contact.getId());
-    selectToGroup(group.getName());
+    selectGroup(group.getName());
     click(By.name("add"));
     returnToHomePage();
   }
 
-  private void selectToGroup(String groupName) {
+  public void removeFromGroup(ContactData contact, GroupData group) {
+    selectGroupForRemove(group.getName());
+    selectContactById(contact.getId());
+    click(By.name("remove"));
+    returnToHomePage();
+  }
+
+  private void selectGroup(String groupName) {
     new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(groupName);
+  }
+
+  private void selectGroupForRemove(String groupName) {
+    new Select(wd.findElement(By.name("group"))).selectByVisibleText(groupName);
   }
 }
 
