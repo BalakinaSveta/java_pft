@@ -1,16 +1,15 @@
 package ru.stqa.pft.addressbook.model;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
 import org.hibernate.annotations.Type;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @XStreamAlias("group")
 @Entity
@@ -20,6 +19,7 @@ public class GroupData {
   @Id
   @Column(name = "group_id")
   private int id = Integer.MAX_VALUE;;
+
   @Expose
   @Column(name = "group_name")
   private String name;
@@ -28,10 +28,16 @@ public class GroupData {
   @Column(name = "group_header")
   @Type(type = "text")
   private String header;
+
   @Expose
   @Column(name = "group_footer")
   @Type(type = "text")
   private String footer;
+
+  @ManyToMany (fetch = FetchType.EAGER)
+  @JoinTable(name = "address_in_groups", joinColumns = @JoinColumn(name = "id"),
+          inverseJoinColumns = @JoinColumn(name = "group_id"))
+  private Set<ContactData> contacts = new HashSet<ContactData>();
 
   @Override
   public String toString() {
@@ -75,6 +81,10 @@ public class GroupData {
     return footer;
   }
 
+  public Contacts getContacts() {
+    return new Contacts(contacts);
+  }
+
   public GroupData withId(int id) {
     this.id = id;
     return this;
@@ -94,6 +104,5 @@ public class GroupData {
     this.footer = footer;
     return this;
   }
-
 }
 
