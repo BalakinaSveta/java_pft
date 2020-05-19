@@ -26,7 +26,7 @@ public class ChangePasswordTests extends TestBase{
     long now = System.currentTimeMillis();
     UserData admin = app.db().admins().iterator().next();
     UserData user = app.db().users().iterator().next();
-    app.usersHelper().login(admin.getName(), "root");
+    app.usersHelper().login(app.getProperty("web.adminPassword"), app.getProperty("web.adminLogin"));
     app.usersHelper().manageUser(user);
     String email = user.getEmail();
     String newPassword = "newpass";
