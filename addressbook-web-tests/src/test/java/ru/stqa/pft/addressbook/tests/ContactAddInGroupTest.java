@@ -29,9 +29,11 @@ public class ContactAddInGroupTest extends TestBase {
     Groups before = contact.getGroups();
     app.goTo().homePage();
     app.contact().addToGroup(contact, group);
-    Groups after = contact.getGroups().withAdded(group);
+    ContactData contactingroup = app.db().contactInGroup(contact.getId());
+    Groups after = contactingroup.getGroups();
     assertThat(after.size(), equalTo(before.size()+1));
     Assert.assertTrue(after.contains(group));
+    assertThat(after, equalTo(before.withAdded(group)));
   }
 
   public ContactData notInGroupContact() {
@@ -39,7 +41,7 @@ public class ContactAddInGroupTest extends TestBase {
     for (ContactData contact : app.db().contacts()) {
       for (GroupData group : app.db().groups()) {
         if (!contact.getGroups().contains(group)) {
-          notInGroupContact = contact;
+          notInGroupContact = contact.withId(app.db().contacts().stream().mapToInt((g) -> g.getId()).max().getAsInt());
           break;
         }
           app.goTo().groupPage();
