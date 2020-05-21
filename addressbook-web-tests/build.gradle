@@ -15,24 +15,9 @@ dependencies {
     implementation 'org.hibernate:hibernate-core:5.1.0.Final'
 }
 
-test {
-    useTestNG()
-}
-
-task testContacts(type: Test) {
-    useTestNG() {
-        suites 'src\test\resources\testng-contacts.xml'
-    }
-    if (project.hasProperty('browser')) {
-        systemProperty 'browser', "${browser}"
-    }
-    if (project.hasProperty('target')) {
-        systemProperty 'target', "${browser}"
-    }
-    if (project.hasProperty('verifyUI')) {
-        systemProperty 'verifyUI', "${verifyUI}"
-    }
-}
+//test {
+    //useTestNG()
+//}
 
 task testGroups(type: Test) {
     useTestNG() {
