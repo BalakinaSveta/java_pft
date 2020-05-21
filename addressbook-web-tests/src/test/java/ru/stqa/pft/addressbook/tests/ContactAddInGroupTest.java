@@ -41,7 +41,7 @@ public class ContactAddInGroupTest extends TestBase {
     for (ContactData contact : app.db().contacts()) {
       for (GroupData group : app.db().groups()) {
         if (!contact.getGroups().contains(group)) {
-          notInGroupContact = contact.withId(app.db().contacts().stream().mapToInt((g) -> g.getId()).max().getAsInt());
+          notInGroupContact = contact.withId(app.db().contacts().stream().mapToInt((c) -> c.getId()).max().getAsInt());
           break;
         }
           app.goTo().groupPage();
